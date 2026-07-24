@@ -1,0 +1,224 @@
+/* ===========================================================================
+   JAI — Brand layer (loaded AFTER globals.css so refinements win by order)
+   =========================================================================== */
+
+/* Distinctive editorial display face for English headlines.
+   Bengali glyphs fall through to Hind Siliguri per-glyph. */
+.font-display {
+  font-family: var(--font-fraunces), "Hind Siliguri", Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+}
+
+/* Section headings become high-contrast editorial serif, not a flat sans block. */
+.section-heading {
+  font-family: var(--font-fraunces), "Hind Siliguri", Georgia, serif;
+  font-weight: 300;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+.section-heading strong {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Retire gradient-painted headlines: the gold accent is now a flat, confident
+   brand gold — more editorial, less "AI gradient". */
+.text-gradient-gold {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: #c8a24c !important;
+  color: #c8a24c !important;
+}
+
+/* Bengali has no true italic — never synthesise a slant on bn glyphs. */
+body.lang-bn .italic,
+body.lang-bn [class*="italic"] {
+  font-style: normal !important;
+}
+
+/* ---------------------------------------------------------------------------
+   Official logo plate — frosted white surface so the navy/blue mark reads on
+   the dark cinematic stage. Gold rim light + soft shadow + top sheen.
+   --------------------------------------------------------------------------- */
+.logo-plate {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(243, 246, 250, 0.92) 100%);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 162, 76, 0.38);
+  box-shadow:
+    0 40px 90px -40px rgba(0, 0, 0, 0.75),
+    0 10px 30px -20px rgba(8, 28, 58, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
+}
+.logo-plate::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 42%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.logo-plate::after {
+  /* gold rim-light sweep on the upper edge */
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(232, 198, 119, 0.9), rgba(200, 162, 76, 0) 45%, rgba(200, 162, 76, 0) 65%, rgba(232, 198, 119, 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.9;
+}
+.logo-halo {
+  position: absolute;
+  inset: -35%;
+  background: radial-gradient(circle at 50% 45%, rgba(200, 162, 76, 0.55), rgba(200, 162, 76, 0.12) 45%, rgba(200, 162, 76, 0) 72%);
+  filter: blur(26px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.plate-reveal { animation: plateIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.plate-float  { animation: plateFloat 7.5s ease-in-out infinite; }
+@keyframes plateIn {
+  from { opacity: 0; transform: translateY(26px) scale(0.94); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: blur(0); }
+}
+@keyframes plateFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(-0.4deg); }
+}
+
+/* ---------------------------------------------------------------------------
+   Preloader
+   --------------------------------------------------------------------------- */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(1200px 600px at 50% 40%, rgba(15, 43, 82, 0.9), rgba(5, 20, 41, 1) 70%),
+    #051429;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+.preloader.is-hidden { opacity: 0; visibility: hidden; }
+.preloader__bar {
+  height: 2px;
+  width: 220px;
+  margin: 28px auto 0;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+.preloader__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, #c8a24c, #e8c677, transparent);
+  animation: preloadSweep 1.4s ease-in-out infinite;
+}
+@keyframes preloadSweep {
+  0%   { transform: translateX(-110%); }
+  100% { transform: translateX(280%); }
+}
+.preloader__word {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: rgba(232, 198, 119, 0.85);
+  animation: wordPulse 1.8s ease-in-out infinite;
+}
+@keyframes wordPulse { 0%, 100% { opacity: 0.45; } 50% { opacity: 1; } }
+
+/* ---------------------------------------------------------------------------
+   Ambient layers
+   --------------------------------------------------------------------------- */
+.twinkle { animation: twinkle 4.5s ease-in-out infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(120% 80% at 50% 30%, transparent 55%, rgba(3, 8, 20, 0.55) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* thin vertical gold tick used in editorial eyebrows */
+.meta-tick {
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, #c8a24c, rgba(200, 162, 76, 0));
+  vertical-align: middle;
+}
+
+.hairline-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200, 162, 76, 0.6), transparent);
+}
+
+/* flight route dash animation */
+.route-dash {
+  stroke-dasharray: 4 8;
+  animation: routeDash 2.4s linear infinite;
+}
+@keyframes routeDash { to { stroke-dashoffset: -48; } }
+
+/* service directory grid (hairline rules, not a card farm) */
+.directory {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.015);
+}
+.directory > div {
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* editorial sharp feature panel */
+.panel-sharp {
+  border-radius: 2px;
+  border: 1px solid rgba(200, 162, 76, 0.28);
+  background:
+    linear-gradient(180deg, rgba(200, 162, 76, 0.08), rgba(8, 28, 58, 0.2)),
+    rgba(8, 28, 58, 0.35);
+}
+
+/* Image depth and background compositing. Transforms are driven by GSAP and
+   remain GPU-friendly; decorative layers never intercept touch or pointer input. */
+.parallax-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.contact-network-bg img {
+  filter: saturate(0.85) contrast(1.1) hue-rotate(-4deg);
+}
+
+.footer-global-bg {
+  background:
+    radial-gradient(circle at 18% 30%, rgba(30, 155, 224, 0.06), transparent 34%),
+    linear-gradient(135deg, #06142b 0%, #030814 58%, #01040a 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate-float, .twinkle, .route-dash, .preloader__bar::after, .preloader__word { animation: none !important; }
+  .plate-reveal { animation-duration: 0.01ms !important; }
+  .parallax-image { transform: none !important; will-change: auto; }
+}

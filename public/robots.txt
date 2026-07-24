@@ -1,0 +1,15 @@
+# Jahangirnagar Air International (JAI)
+# Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jai.com.bd/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /admin
+Disallow: /api/

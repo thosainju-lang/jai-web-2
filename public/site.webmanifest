@@ -1,0 +1,19 @@
+{
+  "name": "Jahangirnagar Air International (JAI)",
+  "short_name": "JAI",
+  "description": "Your Gateway to Global Opportunities - Premium Hajj & Umrah, Student Visa, Immigration, Work Permit, and International Air Ticket Services",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#081C3A",
+  "theme_color": "#C8A24C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "lang": "en",
+  "dir": "ltr"
+}
