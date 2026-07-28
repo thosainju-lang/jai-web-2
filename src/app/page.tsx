@@ -525,6 +525,224 @@ function HajjSection() {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Successful Umrah Completion                                               */
+/* -------------------------------------------------------------------------- */
+
+function UmrahCompletion() {
+  const { t, lang } = useLang();
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".umrah-reveal-left", { 
+        x: -50, 
+        opacity: 0, 
+        duration: 1, 
+        ease: "power2.out", 
+        scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } 
+      });
+      gsap.from(".umrah-reveal-right", { 
+        x: 50, 
+        opacity: 0, 
+        duration: 1, 
+        ease: "power2.out", 
+        scrollTrigger: { trigger: ref.current, start: "top 80%", once: true } 
+      });
+      gsap.fromTo(".umrah-timeline-line", 
+        { scaleX: 0 }, 
+        { 
+          scaleX: 1, 
+          duration: 1.2, 
+          transformOrigin: "left center", 
+          ease: "power1.inOut", 
+          scrollTrigger: { trigger: ".umrah-timeline", start: "top 85%", once: true } 
+        }
+      );
+      gsap.from(".umrah-timeline-node", { 
+        scale: 0, 
+        opacity: 0, 
+        duration: 0.5, 
+        delay: 0.3, 
+        stagger: 0.15, 
+        ease: "back.out(1.5)", 
+        scrollTrigger: { trigger: ".umrah-timeline", start: "top 85%", once: true } 
+      });
+    }, ref);
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section id="umrah-success" ref={ref} className="relative py-28 md:py-36 overflow-hidden bg-gradient-to-b from-[#081C3A] via-[#051429] to-[#081C3A] umrah-section-trigger">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] pointer-events-none">
+        <div className="w-full h-full rounded-full gradient-radial-gold opacity-15 blur-3xl" />
+      </div>
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Side: Photo Frame & Geometric Pattern */}
+          <div className="lg:col-span-5 umrah-reveal-left">
+            <div className="relative max-w-md mx-auto lg:max-w-none">
+              
+              {/* Soft Islamic geometric patterns in background */}
+              <div className="absolute -left-12 -top-12 w-64 h-64 text-[#c8a24c]/10 opacity-30 select-none pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="0.25" strokeDasharray="1 1" />
+                  <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="0.5" />
+                  <path d="M 50 5 L 63.3 36.7 L 95 50 L 63.3 63.3 L 50 95 L 36.7 63.3 L 5 50 L 36.7 36.7 Z" stroke="currentColor" strokeWidth="0.3" />
+                  <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="0.3" transform="rotate(0 50 50)" />
+                  <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="0.3" transform="rotate(45 50 50)" />
+                </svg>
+              </div>
+              <div className="absolute -right-12 -bottom-12 w-64 h-64 text-[#c8a24c]/10 opacity-30 select-none pointer-events-none">
+                <svg viewBox="0 0 100 100" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="45" stroke="currentColor" strokeWidth="0.25" strokeDasharray="1 1" />
+                  <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="0.5" />
+                  <path d="M 50 5 L 63.3 36.7 L 95 50 L 63.3 63.3 L 50 95 L 36.7 63.3 L 5 50 L 36.7 36.7 Z" stroke="currentColor" strokeWidth="0.3" />
+                  <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="0.3" transform="rotate(0 50 50)" />
+                  <rect x="25" y="25" width="50" height="50" stroke="currentColor" strokeWidth="0.3" transform="rotate(45 50 50)" />
+                </svg>
+              </div>
+
+              {/* Large premium rounded frame */}
+              <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-[#c8a24c]/20 p-2 bg-[#081C3A]/40 backdrop-blur-md">
+                <div className="relative w-full h-full rounded-xl overflow-hidden aspect-[4/3]">
+                  <img 
+                    src="/images/jai-umrah-completed.jpg" 
+                    alt="Successfully completed Umrah pilgrims group photo - Jahangirnagar Air International" 
+                    className="w-full h-full object-cover filter brightness-[1.04] contrast-[1.01]" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#051429]/90 via-[#051429]/20 to-transparent pointer-events-none" />
+                  {/* Decorative Islamic border design inside image */}
+                  <div className="absolute inset-3 border border-[#c8a24c]/20 pointer-events-none" />
+                  <div className="absolute top-5 left-5 w-5 h-5 border-t border-l border-[#E8C677]/60 pointer-events-none" />
+                  <div className="absolute top-5 right-5 w-5 h-5 border-t border-r border-[#E8C677]/60 pointer-events-none" />
+                  <div className="absolute bottom-5 left-5 w-5 h-5 border-b border-l border-[#E8C677]/60 pointer-events-none" />
+                  <div className="absolute bottom-5 right-5 w-5 h-5 border-b border-r border-[#E8C677]/60 pointer-events-none" />
+                </div>
+              </div>
+
+              {/* Testimonial card overlay */}
+              <div className="absolute -bottom-6 -right-4 md:-right-8 glass-strong rounded-xl p-5 max-w-[280px] shadow-2xl border border-white/10 card-lift z-20">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-[#c8a24c]/20 flex items-center justify-center flex-shrink-0 text-[#E8C677]">
+                    <Star className="w-4 h-4 fill-[#E8C677] text-[#E8C677]" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-semibold text-[#E8C677] uppercase tracking-wider mb-1">
+                      {lang === "en" ? "Pilgrims' Trust" : "হাজী সাহেবদের মতামত"}
+                    </div>
+                    <p className="text-white/80 text-[11px] italic leading-relaxed">
+                      &ldquo;{lang === "en" 
+                        ? "Alhamdulillah, JAI made our sacred journey comfortable and guided us at every stage. We are fully satisfied." 
+                        : "আলহামদুলিল্লাহ, জেএআই-এর সম্পূর্ণ টিম আমাদের পবিত্র সফরকে সুন্দর ও ঝামেলামুক্ত করেছে। আমরা অত্যন্ত সন্তুষ্ট।"} &rdquo;
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Side: Content */}
+          <div className="lg:col-span-7 umrah-reveal-right">
+            
+            {/* Premium Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#c8a24c]/10 border border-[#c8a24c]/30 text-[10px] md:text-xs font-semibold uppercase tracking-[0.2em] text-[#E8C677] mb-6">
+              <Sparkles className="w-3.5 h-3.5" />
+              {t.umrahCompletion.badge}
+            </div>
+
+            {/* Titles */}
+            <h2 className="section-heading text-left text-[clamp(1.75rem,4vw,3.25rem)] mb-5 leading-tight font-display">
+              {lang === "en" ? (
+                <>
+                  <span className="text-white/95">Alhamdulillah, </span>
+                  <strong className="text-gradient-gold italic">Successful Umrah Journey Completed</strong>
+                </>
+              ) : (
+                <>
+                  <span className="text-white/95">আলহামদুলিল্লাহ, </span>
+                  <strong className="text-gradient-gold italic">আমাদের মাধ্যমে পবিত্র উমরাহ সম্পন্ন</strong>
+                </>
+              )}
+            </h2>
+
+            {/* Description */}
+            <p className="text-white/70 leading-relaxed text-sm md:text-base max-w-2xl font-sans mb-8">
+              {lang === "en" ? t.umrahCompletion.descEn : t.umrahCompletion.desc}
+            </p>
+
+            {/* Feature Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              {t.umrahCompletion.features.map((feature: string, idx: number) => {
+                const cardIcons = [Landmark, Shield, FileText, Users];
+                const CardIcon = cardIcons[idx] || CheckCircle2;
+                return (
+                  <div key={idx} className="glass-strong rounded-lg p-4 border border-white/5 hover:border-[#c8a24c]/30 hover:bg-white/[0.04] transition-all duration-300 flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-[#c8a24c]/10 flex items-center justify-center text-[#E8C677] flex-shrink-0">
+                      <CardIcon className="w-4 h-4" />
+                    </div>
+                    <span className="text-xs md:text-[13px] font-medium text-white/80 leading-snug">{feature}</span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Timeline Progress */}
+            <div className="mb-8 p-5 glass-strong rounded-xl border border-white/5 umrah-timeline">
+              <div className="text-[10px] md:text-[11px] uppercase tracking-wider text-[#E8C677] mb-5 font-semibold flex items-center gap-2">
+                <Compass className="w-3.5 h-3.5 animate-spin-slow" />
+                {lang === "en" ? "Journey Milestone Timeline" : "সফর মাইলস্টোন টাইমলাইন"}
+              </div>
+              
+              <div className="relative flex justify-between items-center gap-2">
+                {/* Timeline line */}
+                <div className="absolute top-[14px] left-0 right-0 h-[2px] bg-white/10 pointer-events-none z-0" />
+                <div className="absolute top-[14px] left-0 right-0 h-[2px] bg-[#c8a24c]/30 origin-left scale-x-0 pointer-events-none z-0 umrah-timeline-line" />
+
+                {/* Timeline nodes */}
+                {[
+                  { key: "booking", label: t.umrahCompletion.timeline.booking },
+                  { key: "visa", label: t.umrahCompletion.timeline.visa },
+                  { key: "journey", label: t.umrahCompletion.timeline.journey },
+                  { key: "completion", label: t.umrahCompletion.timeline.completion }
+                ].map((step, index) => (
+                  <div key={step.key} className="flex flex-col items-center relative z-10 select-none flex-1 umrah-timeline-node">
+                    <div className={`w-7.5 h-7.5 md:w-8 md:h-8 rounded-full flex items-center justify-center border-2 transition-all duration-500 bg-[#081C3A] ${
+                      index === 3 
+                        ? "border-[#c8a24c] text-[#E8C677] shadow-[0_0_15px_rgba(200,162,76,0.6)]" 
+                        : "border-[#c8a24c]/60 text-white/80"
+                    }`}>
+                      <span className="text-[10px] md:text-[11px] font-bold">{index + 1}</span>
+                    </div>
+                    <span className="text-[9px] md:text-xs font-medium text-white/60 mt-2 text-center leading-snug">{step.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4">
+              <a href="#contact" className="btn-primary flex items-center gap-2 group">
+                {t.umrahCompletion.ctaStart}
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a href="#contact" className="px-6 py-3 rounded-full border border-white/15 text-xs md:text-sm font-semibold text-white hover:border-[#c8a24c]/60 hover:text-[#E8C677] transition-all bg-white/[0.02] hover:bg-white/[0.05]">
+                {t.umrahCompletion.ctaContact}
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Other service bands                                                       */
 /* -------------------------------------------------------------------------- */
 
@@ -634,13 +852,6 @@ function About() {
   const { t } = useLang();
   const ref = useRef<HTMLDivElement>(null);
 
-  const stats = [
-    { value: t.about.years, label: t.about.yearsLabel, icon: Star },
-    { value: t.about.countries, label: t.about.countriesLabel, icon: Globe },
-    { value: t.about.clients, label: t.about.clientsLabel, icon: Users },
-    { value: t.about.rating, label: t.about.ratingLabel, icon: Sparkles },
-  ];
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils.toArray<HTMLElement>(".about-reveal").forEach((el) => {
@@ -669,19 +880,6 @@ function About() {
               <strong className="text-gradient-gold italic">{t.about.accent}</strong>
             </h2>
             <p className="mt-6 text-white/65 leading-relaxed max-w-xl">{t.about.desc}</p>
-          </div>
-
-          <div className="about-reveal grid grid-cols-2 gap-3">
-            {stats.map((s, i) => {
-              const Icon = s.icon;
-              return (
-                <div key={i} className={`p-7 card-lift ${i % 3 === 0 ? "panel-sharp" : "glass-strong rounded-[3px]"}`}>
-                  <Icon className="w-7 h-7 text-[#c8a24c] mb-5" />
-                  <div className="font-display text-4xl md:text-5xl text-white mb-2">{s.value}</div>
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-white/50">{s.label}</div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>
@@ -1096,6 +1294,7 @@ function HomePageContent() {
         <Welcome />
         <Services />
         <HajjSection />
+        <UmrahCompletion />
         <OtherService id="visa" icon={GraduationCap} image="/images/jai-student-campus.jpg" badge={t.services.student.badge} title={t.services.student.title} desc={t.services.student.desc} cta={t.services.student.cta} reverse />
         <OtherService id="immigration" icon={Globe2} image="/images/jai-immigration-passport.jpg" badge={t.services.immigration.badge} title={t.services.immigration.title} desc={t.services.immigration.desc} cta={t.services.immigration.cta} />
         <OtherService id="work" icon={Briefcase} image="/images/jai-about-office.jpg" badge={t.services.work.badge} title={t.services.work.title} desc={t.services.work.desc} cta={t.services.work.cta} reverse />

@@ -171,6 +171,27 @@ export const translations = {
       rights: "All Rights Reserved.",
       lang: "Language",
     },
+    umrahCompletion: {
+      badge: "Umrah Completed Successfully",
+      title: "Alhamdulillah, Successful Umrah Journey Completed",
+      titleBn: "আলহামদুলিল্লাহ, আমাদের মাধ্যমে পবিত্র উমরাহ সম্পন্ন",
+      desc: "জাহাঙ্গীরনগর এয়ার ইন্টারন্যাশনাল (JAI)-এর মাধ্যমে সম্মানিত হাজী সাহেবগণ ও উমরাহ যাত্রীদের পবিত্র উমরাহ যাত্রা সফলভাবে সম্পন্ন হয়েছে। আমাদের লক্ষ্য হলো নিরাপদ, বিশ্বস্ত ও মানসম্মত সেবার মাধ্যমে প্রত্যেক যাত্রীর পবিত্র সফরকে সহজ ও সুন্দর করে তোলা।",
+      descEn: "With Jahangirnagar Air International (JAI), the holy Umrah journey of our respected Hajis and pilgrims has been successfully completed. Our goal is to make every traveler's sacred journey safe, reliable, and smooth with premium quality services.",
+      features: [
+        "Umrah Package Successfully Completed",
+        "Trusted Travel Assistance",
+        "Complete Visa & Travel Support",
+        "Professional Guidance Throughout Journey"
+      ],
+      timeline: {
+        booking: "Booking",
+        visa: "Visa Processing",
+        journey: "Journey Started",
+        completion: "Successful Umrah"
+      },
+      ctaStart: "Start Your Umrah Journey",
+      ctaContact: "Contact JAI"
+    },
   },
   bn: {
     nav: {
@@ -341,6 +362,27 @@ export const translations = {
       subscribe: "সাবস্ক্রাইব",
       rights: "সর্বস্বত্ব সংরক্ষিত।",
       lang: "ভাষা",
+    },
+    umrahCompletion: {
+      badge: "উমরাহ সফলভাবে সম্পন্ন",
+      title: "আলহামদুলিল্লাহ, আমাদের মাধ্যমে পবিত্র উমরাহ সম্পন্ন",
+      titleBn: "আলহামদুলিল্লাহ, আমাদের মাধ্যমে পবিত্র উমরাহ সম্পন্ন",
+      desc: "জাহাঙ্গীরনগর এয়ার ইন্টারন্যাশনাল (JAI)-এর মাধ্যমে সম্মানিত হাজী সাহেবগণ ও উমরাহ যাত্রীদের পবিত্র উমরাহ যাত্রা সফলভাবে সম্পন্ন হয়েছে। আমাদের লক্ষ্য হলো নিরাপদ, বিশ্বস্ত ও মানসম্মত সেবার মাধ্যমে প্রত্যেক যাত্রীর পবিত্র সফরকে সহজ ও সুন্দর করে তোলা।",
+      descEn: "With Jahangirnagar Air International (JAI), the holy Umrah journey of our respected Hajis and pilgrims has been successfully completed. Our goal is to make every traveler's sacred journey safe, reliable, and smooth with premium quality services.",
+      features: [
+        "উমরাহ প্যাকেজ সফলভাবে সম্পন্ন",
+        "বিশ্বস্ত ভ্রমণ সহায়তা",
+        "সম্পূর্ণ ভিসা ও ভ্রমণ সহায়তা",
+        "সফর জুড়ে পেশাদার নির্দেশনা"
+      ],
+      timeline: {
+        booking: "বুকিং",
+        visa: "ভিসা প্রসেসিং",
+        journey: "সফর শুরু",
+        completion: "সফল উমরাহ সম্পন্ন"
+      },
+      ctaStart: "আপনার উমরাহ যাত্রা শুরু করুন",
+      ctaContact: "JAI-এর সাথে যোগাযোগ করুন"
     },
   },
 } as const;

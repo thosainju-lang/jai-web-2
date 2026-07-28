@@ -102,7 +102,7 @@ body.lang-bn [class*="italic"] {
 .preloader {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 9999;
   display: grid;
   place-items: center;
   background:
@@ -110,7 +110,14 @@ body.lang-bn [class*="italic"] {
     #051429;
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
-.preloader.is-hidden { opacity: 0; visibility: hidden; }
+.preloader.is-hidden { 
+  opacity: 0; 
+  visibility: hidden !important; 
+  pointer-events: none !important; 
+}
+body.loading-active, html.loading-active {
+  overflow: hidden !important;
+}
 .preloader__bar {
   height: 2px;
   width: 220px;
